@@ -1,0 +1,37 @@
+.listPet{
+    background: #3f51b5;
+    padding: 0px 20px;
+    overflow-y: scroll;
+    min-height: 200px;
+    @media (min-width: 1024px) {
+        width: 50%;
+    }
+    &_list{
+        list-style: none;
+        background: #f4f4f4;
+        border: 1px solid #f4f4f4;
+        border-radius: 2px;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        box-shadow: 5px 5px 25px -10px #ccc;
+        padding-top: 20px;
+        @media (min-width: 1024px) {
+            flex-direction: row;
+            padding: 5px 10px;
+        }
+        &-item{
+            margin-bottom: 10px;
+            color: #4b5155;
+            @media (min-width: 1024px) {
+                margin: 15px 0px;
+            }
+        }
+        &-divisor{
+            width: 100%;
+            @media (min-width: 1024px) {
+                width: 33.333%;
+            }
+        }
+    }
+}
