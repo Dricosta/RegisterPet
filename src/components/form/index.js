@@ -85,7 +85,7 @@ const Form = ({ cadastrarPets, cadastrar, loading, success, error }) => {
                 </div>
                 <div className={`form_msg error ${error ? 'open-error' : 'close-error'}` }>
                     <FontAwesomeIcon className="form_msg-icon" icon="times-circle" />
-                    Preencha todos os campos do formulario!
+                    Preencha todos os campos.
                 </div>
             </form>
           
