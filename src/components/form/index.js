@@ -8,7 +8,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import './form.scss';
 
 
-const Form = ({ cadastrarPets, cadastrar, loading, success }) => {
+const Form = ({ cadastrarPets, cadastrar, loading, success, error }) => {
     return (
         <div className="main-form">
             <form className="form" id="form" onSubmit={cadastrarPets}>
@@ -79,9 +79,13 @@ const Form = ({ cadastrarPets, cadastrar, loading, success }) => {
                     {!!loading && <ReactLoading type="spin" color="white" height={20} width={20} />}
                     {cadastrar}
                 </button>
-                <div className={`form_msg-sucess ${success ? 'open-success' : 'close-success'}` }>
-                    <FontAwesomeIcon className="form_msg-sucess-icon" icon="check-circle" />
+                <div className={`form_msg ${success ? 'open-success' : 'close-success'}` }>
+                    <FontAwesomeIcon className="form_msg-icon" icon="check-circle" />
                     Cadastro realizado com sucesso!
+                </div>
+                <div className={`form_msg error ${error ? 'open-error' : 'close-error'}` }>
+                    <FontAwesomeIcon className="form_msg-icon" icon="times-circle" />
+                    Preencha todos os campos do formulario!
                 </div>
             </form>
           

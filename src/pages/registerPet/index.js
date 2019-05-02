@@ -17,7 +17,8 @@ class RegisterPet extends Component {
             Pets: [],
             cadastrar: 'Cadastrar',
             loading: false,
-            success: false
+            success: false,
+            error: false
         }
     }
 
@@ -55,6 +56,21 @@ class RegisterPet extends Component {
             Porte: Porte
         }
 
+        if ((nome.value && dono.value && peso.value && idade.value && raca.value && Porte) === '') {
+            this.setState({
+                error: true,
+            }, () => {
+                setTimeout(() => {
+                    this.setState({
+                        error: false
+                    })
+                }, 2000)
+            })
+            return false
+        } 
+
+      
+
         this.setState({
             cadastrar: null,
             loading: true
@@ -79,12 +95,12 @@ class RegisterPet extends Component {
         }, 5000)
 
         
-       nome.value = null
-       dono.value = null
-       peso.value = null
-       idade.value = null
-       raca.value = null
-       Porte = null
+       nome.value = ''
+       dono.value = ''
+       peso.value = ''
+       idade.value = ''
+       raca.value = ''
+       Porte = ''
     }
 
     
@@ -92,13 +108,14 @@ class RegisterPet extends Component {
     
 
     render() {
-        const { Pets, cadastrar, loading, success } = this.state
+        const { Pets, cadastrar, loading, success, error } = this.state
         return (
             <div className="registerPet">
                 <Form cadastrarPets={(e) => this.CadastrarPets(e)} 
                 cadastrar={cadastrar} 
                 loading={loading}
-                success={success}/>
+                success={success}
+                error={error}/>
                 <div className="listPet">
                     {Pets.map((pet, index) => {
                         return (
